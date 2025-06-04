@@ -36,51 +36,53 @@ Start the server script and check for errors.
 Open a browser and navigate to http://127.0.0.1:8000 (or the assigned port).
 
 ## PROGRAM:
-"""
+```
 from http.server import HTTPServer, BaseHTTPRequestHandler
 content = """
 
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>TCP/IP Layers</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Types of TCP/IP</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f5f5f5;
-            margin: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 20px;
         }
         .container {
-            text-align: center;
+            width: 60%;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        .layer {
-            width: 300px;
-            padding: 15px;
-            margin: 10px auto;
-            border-radius: 8px;
-            color: white;
-            font-size: 18px;
-            font-weight: bold;
+        h1 {
+            color: #333;
         }
-        .application { background-color: #ff5733; }
-        .transport { background-color: #33b5e5; }
-        .internet { background-color: #2ecc71; }
-        .network { background-color: #8e44ad; }
+        .tcp-layer {
+            padding: 10px;
+            margin: 10px 0;
+            background: #ddd;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h2>Types of TCP/IP Layers</h2>
-        <div class="layer application">Application Layer</div>
-        <div class="layer transport">Transport Layer</div>
-        <div class="layer internet">Internet Layer</div>
-        <div class="layer network">Network Access Layer</div>
+        <h1>Types of TCP/IP Layers</h1>
+        <div class="tcp-layer">Application Layer</div>
+        <div class="tcp-layer">Transport Layer</div>
+        <div class="tcp-layer">Internet Layer</div>
+        <div class="tcp-layer">Network Access Layer</div>
     </div>
 </body>
 </html>
+
 """
 class myhandler(BaseHTTPRequestHandler):
     def do_GET(self):
@@ -93,8 +95,8 @@ server_address = ('',8000)
 httpd = HTTPServer(server_address,myhandler)
 print("my webserver is running...")
 httpd.serve_forever()
-"""
-
+'''
+```
 ## OUTPUT:
 ![alt text](<Screenshot (20).png>)
 ![alt text](<Screenshot (21).png>)
